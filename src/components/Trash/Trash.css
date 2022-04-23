@@ -1,0 +1,14 @@
+#trash {
+    width: 42px;
+    height: 42px;
+    margin-right: 16px;
+    position: absolute;
+    right: 0;
+    border: none;
+    background-color: #F2EBF3;
+}
+
+li {
+  list-style-type: '';
+  padding-bottom: 28px;
+}
