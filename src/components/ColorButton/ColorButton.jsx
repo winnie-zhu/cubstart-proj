@@ -1,11 +1,9 @@
 import "./ColorButton.css"
 
-export function ColorButton(n, color) {
+export function ColorButton(props) {
     return(
-        <li id={"btn" + n}>
-            <button>
-
-            </button>
+        <li id={"btn" + props.n}>
+            <button style={{backgroundColor: props.color}} />
         </li>
     );
 }
