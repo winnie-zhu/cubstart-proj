@@ -1,0 +1,15 @@
+.content {
+    display: grid;
+    grid-template-columns: minmax(150px, 95%) 1fr;
+    height: 90vh;
+}
+p {
+    font-size: 30px;
+    color: gray;
+}
+
+canvas {
+    height: 90vh;
+    width: 100%;
+    border: "1px solid"
+}

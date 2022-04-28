@@ -1,6 +1,6 @@
 import { Nav } from '../../components/nav/Nav';
 
-export default function Focus() {
+export function Focus() {
     return (
         <>
             <Nav />

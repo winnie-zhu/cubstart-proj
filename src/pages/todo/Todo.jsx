@@ -1,6 +1,6 @@
 import { Nav } from '../../components/nav/Nav';
 
-export default function Todo() {
+export function Todo() {
     return (
         <>
             <Nav />

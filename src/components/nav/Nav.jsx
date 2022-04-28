@@ -8,15 +8,11 @@ export function Nav() {
     const [clicked, setClick] = useState(false);
 
     return (
-        <nav className="NavbarItems">
-            
-            <div className="menu-icon" onClick={() => setClick(!clicked)}>
-                
-            </div>
+        <nav className="nav-container">
             <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
                 {MenuItems.map((item, index) => {
                     return (
-                        <li key={index}>
+                        <li key={index} className="menu-names">
                             <Link className={item.cName} to={item.url}>
                                 <Icon className="icons" icon={item.icon} color="#545454" height="30"></Icon>
                                 {item.title}
