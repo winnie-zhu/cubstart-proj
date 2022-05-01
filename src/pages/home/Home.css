@@ -9,7 +9,8 @@ p {
 }
 
 canvas {
+    border: solid;
     height: 90vh;
-    width: 100%;
+    width: 97%;
     border: "1px solid"
 }

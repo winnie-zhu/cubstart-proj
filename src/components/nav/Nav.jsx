@@ -1,5 +1,5 @@
-import { MenuItems } from "./MenuItems"
-import './Nav.css'
+import { MenuItems } from "./MenuItems";
+import './Nav.css';
 import { Icon } from '@iconify/react';
 import { useState } from "react";
 import { Link } from 'react-router-dom';
