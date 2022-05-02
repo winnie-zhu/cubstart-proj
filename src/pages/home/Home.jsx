@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Nav } from '../../components/nav/Nav';
-import { SideBar } from '../../components/sidebar/SideBar';
-import { getColor } from '../../components/colorbutton/ColorButton';
+import { ColorButton, getColor } from '../../components/colorbutton/ColorButton';
+import { Icon } from '@iconify/react';
+
 import './Home.css';
 
 export function Home() {
@@ -42,7 +43,6 @@ export function Home() {
             y: e.pageY
         });
         setMouseDown(true);
-        console.log("mouse down: " + mouseDown);
     }
 
     const onMouseUp = (e) => {
@@ -50,8 +50,12 @@ export function Home() {
     }
 
     const onMouseMove = (e) => {
-        console.log(e.pageX + ", " + e.pageY);
         draw(e.pageX, e.pageY);
+    }
+
+    const clear = () => {
+        console.log("trash");
+        ctx.current.clearRect(0, 0, ctx.current.canvas.width, ctx.current.canvas.height);
     }
 
 
@@ -64,17 +68,19 @@ export function Home() {
                     height={window.innerHeight}
                     width={window.innerWidth}
                     onMouseDown={onMouseDown}
-                    onMouseUp={onMouseUp}
                     onMouseLeave={onMouseUp}
                     onMouseMove={onMouseMove}
-                    // onMouseMove={onMouseMove}
-                    // onMouseUp={onMouseUp}
-                    // onMouseDown={onMouseDown}
-                    // onMouseLeave={onMouseUp}
+                    onMouseUp={onMouseUp}
+                    
                 />                    
                
                 
-                <SideBar />
+                <ul className="sidebar-container">
+                    <ColorButton/>
+                    <li>
+                        <button id='trash' onClick={clear}><Icon icon="bx:trash" color="#545454" height="42"/></button>
+                    </li>
+                </ul>
                 
             </div>
             

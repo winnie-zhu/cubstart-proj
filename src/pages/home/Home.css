@@ -9,8 +9,24 @@ p {
 }
 
 canvas {
-    border: solid;
+    padding: 0;
     height: 90vh;
-    width: 97%;
+    width: 100%;
     border: "1px solid"
+}
+
+li {
+    list-style-type: '';
+    padding-bottom: 26px;
+  }
+  
+  .sidebar-container {
+    margin-top: 0px;
+    padding-left: 0px;
+  }
+
+  #trash {
+    margin-right: 16px;
+    border: none;
+    background-color: #F2EBF3;
 }
