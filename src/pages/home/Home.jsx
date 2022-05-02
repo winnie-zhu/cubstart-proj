@@ -26,7 +26,7 @@ export function Home() {
         if (mouseDown) {
             ctx.current.beginPath();
             ctx.current.strokeStyle = getColor();
-            ctx.current.lineWidth = 10;
+            ctx.current.lineWidth = 5;
             ctx.current.lineJoin = 'round';
             ctx.current.moveTo(lastPosition.x, lastPosition.y);
             ctx.current.lineTo(x, y);

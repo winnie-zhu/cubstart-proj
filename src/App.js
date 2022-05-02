@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './App.css';
 import { BrowserRouter as 
   Router, 
@@ -11,7 +10,6 @@ import { Todo } from './pages/todo/Todo';
 import { Focus } from './pages/focus/Focus';
 
 function App() {
-  // const [color, setColor] = useState("black");
 
   return (
     <Router>
