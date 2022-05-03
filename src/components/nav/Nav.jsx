@@ -9,7 +9,7 @@ export function Nav() {
 
     return (
         <nav className="nav-container">
-            <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
+            <ul className='nav-menu'>
                 {MenuItems.map((item, index) => {
                     return (
                         <li key={index} className="menu-names">

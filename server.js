@@ -6,22 +6,20 @@ var server = http.createServer(app);
 
 var io = require('socket.io')(server);
 
-app.use(express.static(path.join(__dirname, './public')));
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
-})
+// app.get('/', function(req, res){
+//     res.render('public/index.cjs');
+//   });
 
 io.on('connection', (socket) => {
     console.log('User online');
 
     socket.on('canvas-data', (data) => {
+        console.log("server sending canvas");
         socket.broadcast.emit('canvas-data', data);
     });
-
-    socket.on('disconnect', () => {
-        console.log("user disconnected");
-    });
 })
+
+app.use(express.static("public"));
 
 
 server.listen(process.env.PORT || 3000, () => {

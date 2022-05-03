@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Nav } from '../../components/nav/Nav';
 import { ColorButton, getColor } from '../../components/colorbutton/ColorButton';
 import { Icon } from '@iconify/react';
-import { io } from 'socket.io-client';
+// import { io } from 'socket.io-client';
 
 import './Home.css';
 
@@ -11,7 +11,7 @@ import './Home.css';
 export function Home() {
     const canvasRef = useRef(null);
     const ctx = useRef(null);
-    const socket = io("http://localhost:3000");
+    // const socket = io.connect("http://localhost:3000");
 
     const [mouseDown, setMouseDown] = useState(false);
     const [lastPosition, setPosition] = useState({
@@ -23,7 +23,7 @@ export function Home() {
         if (canvasRef.current) {
             ctx.current = canvasRef.current.getContext('2d');
         }
-    }, []);
+    });
 
 
     const draw = useCallback((x, y) => {
@@ -39,14 +39,9 @@ export function Home() {
             ctx.current.stroke();
             console.log("drawing");
             setPosition({x, y});
-
-            
-            const canvasImg = canvasRef.current.toDataUrl();
-            socket.emit("canvas-data", canvasImg);
-            
-            
         }
-    }, [lastPosition, mouseDown, setPosition, socket]);
+        
+    }, [lastPosition, mouseDown, setPosition]);
 
     const onMouseDown = (e) => {
         setPosition({
@@ -54,6 +49,7 @@ export function Home() {
             y: e.pageY
         });
         setMouseDown(true);
+
     }
 
     const onMouseUp = (e) => {
@@ -62,21 +58,14 @@ export function Home() {
 
     const onMouseMove = (e) => {
         draw(e.pageX, e.pageY);
+        // const canvasImg = canvasRef.toDataUrl();
+        // socket.emit("canvas-data", canvasImg);
     }
 
     const clear = () => {
         console.log("trash");
         ctx.current.clearRect(0, 0, ctx.current.canvas.width, ctx.current.canvas.height);
     }
-
-    socket.on("canvas-data", (data) => {
-        var image = new Image();
-        image.onload = () => {
-            ctx.drawImage(image, 0, 0);
-        };
-        image.src = data;
-
-    }, 200);
 
 
     return (
