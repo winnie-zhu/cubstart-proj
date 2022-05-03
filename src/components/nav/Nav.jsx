@@ -1,11 +1,9 @@
 import { MenuItems } from "./MenuItems";
 import './Nav.css';
 import { Icon } from '@iconify/react';
-import { useState } from "react";
 import { Link } from 'react-router-dom';
 
 export function Nav() {
-    const [clicked, setClick] = useState(false);
 
     return (
         <nav className="nav-container">
