@@ -1,17 +1,17 @@
 import { Task } from '../task/Task';
+import { Icon } from '@iconify/react';
 
 export function List(todoList, handleToggle, handleFilter) {
-    console.log("todolist type" + todoList.type());
+    console.log("todolist type " + typeof(todoList));
     return (
         <div>
-            {todoList.map(todo => {
+            {Object.keys(todoList).map((id) => {
+                var todo = todoList[id];
                 return (
                     <Task todo={todo} handleToggle={handleToggle} handleFilter={handleFilter}/>
                 );
             })}
-            <button style={{margin: '20px'}} onClick={handleFilter}>
-                Clear Completed
-            </button>
+            <button className='trash' onClick={handleFilter}><Icon icon="bx:trash" color="#545454" height="42"/></button>
         </div>
     );
 }

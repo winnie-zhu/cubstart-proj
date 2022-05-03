@@ -16,7 +16,8 @@ export function Todo() {
     }
 
     const handleToggle = (id) => {
-        let mapped = todoList.map((task, key) => {
+        console.log(todoList.length());
+        let mapped = todoList.map(task => {
             return (
                 task.id === id ? {...task, complete: !task.complete} : {...task}
             );
@@ -25,6 +26,7 @@ export function Todo() {
     }
 
     const handleFilter = () => {
+        console.log("filter");
         let filtered = todoList.filter(task => {
             return !task.complete;
         })
@@ -33,9 +35,8 @@ export function Todo() {
     return (
         <>
             <Nav />
+            <h4>Work in progress :(</h4>
             <InputItem addTask={addTask}/>
-            {console.log(typeof(todoList))}
-            {console.log("hello")}
             <List 
                 todoList={todoList} 
                 handleToggle={handleToggle} 

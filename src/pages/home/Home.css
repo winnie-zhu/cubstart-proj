@@ -25,7 +25,7 @@ li {
     padding-left: 0px;
   }
 
-  #trash {
+  .trash {
     margin-right: 16px;
     border: none;
     background-color: #F2EBF3;

@@ -87,7 +87,7 @@ export function Home() {
                 <ul className="sidebar-container">
                     <ColorButton/>
                     <li>
-                        <button id='trash' onClick={clear}><Icon icon="bx:trash" color="#545454" height="42"/></button>
+                        <button className='trash' onClick={clear}><Icon icon="bx:trash" color="#545454" height="42"/></button>
                     </li>
                 </ul>
                 
